@@ -89,7 +89,7 @@ function MainPage({offersCount}: MainScreenProps) : JSX.Element {
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found"> {offersCount} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
-                <span className="places__sorting-caption">Sort by</span>
+                <span className="places__sorting-caption">Sort by&nbsp;</span>
                 <span className="places__sorting-type" tabIndex={0}>
           Popular
                   <svg className="places__sorting-arrow" width={7} height={4}>
@@ -101,10 +101,10 @@ function MainPage({offersCount}: MainScreenProps) : JSX.Element {
             Popular
                   </li>
                   <li className="places__option" tabIndex={0}>
-            Price: low to high
+            Price: low to high&nbsp;
                   </li>
                   <li className="places__option" tabIndex={0}>
-            Price: high to low
+            Price: high to low&nbsp;
                   </li>
                   <li className="places__option" tabIndex={0}>
             Top rated first
