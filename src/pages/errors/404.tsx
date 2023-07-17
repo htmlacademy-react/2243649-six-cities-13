@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom';
 import Logo from '../../components/logo/logo';
 
-function ErrorNotFound() : JSX.Element {
+function Page404() : JSX.Element {
   return (
     <section>
       <Logo />
@@ -11,4 +11,4 @@ function ErrorNotFound() : JSX.Element {
   );
 }
 
-export default ErrorNotFound;
+export default Page404;
