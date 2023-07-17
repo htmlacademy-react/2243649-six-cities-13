@@ -4,7 +4,7 @@ import {AppRoute, AuthorizationStatus} from '../constants';
 import LoginPage from '../../pages/login/login';
 import FavoritesPage from '../../pages/favorites/favorites';
 import OfferPage from '../../pages/offer/offer';
-import ErrorNotFound from '../../pages/errors/error-404';
+import Page404 from '../../pages/errors/404';
 import PrivateRoute from '../private-route/private-route';
 
 type AppProps = {
@@ -39,7 +39,7 @@ function App({offersCount}: AppProps): JSX.Element {
         />
         <Route
           path="*"
-          element={<ErrorNotFound />}
+          element={<Page404 />}
         />
       </Routes>
     </BrowserRouter>
