@@ -1,4 +1,4 @@
-export type TOffer= {
+export type Offer = {
   id: string;
   title: string;
   type: string;
@@ -23,5 +23,4 @@ type Location = {
   zoom: number;
 };
 
-//export type Offers = TOffer[];
 
