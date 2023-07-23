@@ -1,13 +1,16 @@
 import {Offer} from '../../types/offers';
+import {useState} from 'react';
 
 type OfferCardProps = {
   offer: Offer;
 }
 
 function OfferCard({offer}: OfferCardProps): JSX.Element {
-  const {title, type, price, isFavorite, isPremium, rating, previewImage} = offer;
+  const {id, title, type, price, isFavorite, isPremium, rating, previewImage} = offer;
+  const [currentCard, setCurrentCard] = useState('');
+
   return (
-    <article className="cities__card place-card">
+    <article className="cities__card place-card" id={id} onMouseOver={()=>setCurrentCard(id)}>
       {isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
