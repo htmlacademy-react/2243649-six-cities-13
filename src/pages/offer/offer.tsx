@@ -1,4 +1,11 @@
-function OfferPage(): JSX.Element {
+import OfferCard from '../../components/offer-card/offer-card';
+import {Offer} from '../../types/offers';
+
+type OfferScreenProps = {
+  offers: Offer[];
+}
+
+function OfferPage({offers}: OfferScreenProps): JSX.Element {
   return (
     <div className="page">
       <header className="header">
@@ -323,6 +330,7 @@ function OfferPage(): JSX.Element {
           Other places in the neighbourhood
             </h2>
             <div className="near-places__list places__list">
+              {offers.map((offer) => <OfferCard key={offer.id} offer={offer}/>)}
               <article className="near-places__card place-card">
                 <div className="near-places__image-wrapper place-card__image-wrapper">
                   <a href="#">
