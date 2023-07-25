@@ -29,16 +29,19 @@ function App({offersCount, offers}: AppProps): JSX.Element {
           path={AppRoute.Favorites}
           element={
             <PrivateRoute
-              authorizationStatus={AuthorizationStatus.NoAuth}
+              authorizationStatus={AuthorizationStatus.Auth}
             >
-              <FavoritesPage />
+              <FavoritesPage offers={offers}/>
             </PrivateRoute>
           }
         />
         <Route
           path={AppRoute.Offer}
-          element={<OfferPage />}
-        />
+        >
+          <Route path=':id'
+            element={<OfferPage offers={offers}/>}
+          />
+        </Route>
         <Route
           path="*"
           element={<Page404 />}
