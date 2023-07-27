@@ -9,7 +9,7 @@ type OfferCardProps = {
 
 function OfferCard({offer}: OfferCardProps): JSX.Element {
   const {id, title, type, price, isFavorite, isPremium, rating, previewImage} = offer;
-  const [currentCard, setCurrentCard] = useState('');
+  const [, setCurrentCard] = useState('');
 
   return (
     <article className="cities__card place-card" id={id} onMouseOver={()=>setCurrentCard(id)}>

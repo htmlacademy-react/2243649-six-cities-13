@@ -7,13 +7,15 @@ import OfferPage from '../../pages/offer/offer';
 import Page404 from '../../pages/errors/404';
 import PrivateRoute from '../private-route/private-route';
 import {Offer} from '../../types/offers';
+import {Review} from '../../types/reviews';
 
 type AppProps = {
   offersCount: number;
   offers: Offer[];
+  reviews: Review[];
 }
 
-function App({offersCount, offers}: AppProps): JSX.Element {
+function App({offersCount, offers, reviews}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
@@ -39,7 +41,7 @@ function App({offersCount, offers}: AppProps): JSX.Element {
           path={AppRoute.Offer}
         >
           <Route path=':id'
-            element={<OfferPage offers={offers}/>}
+            element={<OfferPage offers={offers} reviews={reviews} />}
           />
         </Route>
         <Route

@@ -1,18 +1,22 @@
 import OfferCard from '../../components/offer-card/offer-card';
 import {Offer} from '../../types/offers';
+import ReviewList from '../../components/review-card/review-card.tsx';
+import {Review} from '../../types/reviews.tsx';
+import {Link} from 'react-router-dom';
 
 type OfferScreenProps = {
   offers: Offer[];
+  reviews: Review[];
 }
 
-function OfferPage({offers}: OfferScreenProps): JSX.Element {
+function OfferPage({offers,reviews}: OfferScreenProps): JSX.Element {
   return (
     <div className="page">
       <header className="header">
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link" href="main.html">
+              <Link className="header__logo-link" to="/">
                 <img
                   className="header__logo"
                   src="img/logo.svg"
@@ -20,7 +24,7 @@ function OfferPage({offers}: OfferScreenProps): JSX.Element {
                   width={81}
                   height={41}
                 />
-              </a>
+              </Link>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
@@ -176,7 +180,8 @@ function OfferPage({offers}: OfferScreenProps): JSX.Element {
               </div>
               <section className="offer__reviews reviews">
                 <h2 className="reviews__title">
-              Reviews · <span className="reviews__amount">1</span>
+              Reviews · <span className="reviews__amount">{reviews.length}</span>
+                  <ReviewList reviews={reviews}/>
                 </h2>
                 <ul className="reviews__list">
                   <li className="reviews__item">
