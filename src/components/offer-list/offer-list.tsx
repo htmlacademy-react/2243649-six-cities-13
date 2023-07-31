@@ -1,11 +1,11 @@
 import {Offer} from '../../types/offers';
 import OfferCard from '../offer-card/offer-card';
 
-type PlaceCardProps = {
+type OfferListProps = {
 offers: Offer[];
 }
 
-function PlaceCard({offers}: PlaceCardProps): JSX.Element {
+function OfferList({offers}: OfferListProps): JSX.Element {
 
   return (
     <div className="cities__places-list places__list tabs__content">
@@ -16,4 +16,4 @@ function PlaceCard({offers}: PlaceCardProps): JSX.Element {
   );
 }
 
-export default PlaceCard;
+export default OfferList;

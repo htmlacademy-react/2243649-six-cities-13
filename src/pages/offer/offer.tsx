@@ -1,8 +1,10 @@
 import OfferCard from '../../components/offer-card/offer-card';
 import {Offer} from '../../types/offers';
-import ReviewList from '../../components/review-card/review-card.tsx';
+import ReviewList from '../../components/review-list/review-list.tsx';
 import {Review} from '../../types/reviews.tsx';
 import {Link} from 'react-router-dom';
+import {AppRoute} from '../../constants.ts';
+import {useParams, Navigate} from 'react-router-dom';
 
 type OfferScreenProps = {
   offers: Offer[];
@@ -10,13 +12,18 @@ type OfferScreenProps = {
 }
 
 function OfferPage({offers,reviews}: OfferScreenProps): JSX.Element {
+  const {id} = useParams();
+  const currentOffer = offers.find((offer) => offer.id === id);
+  if(!currentOffer) {
+    return <Navigate to='Page404' />;
+  }
   return (
     <div className="page">
       <header className="header">
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <Link className="header__logo-link" to="/">
+              <Link className="header__logo-link" to={AppRoute.Main}>
                 <img
                   className="header__logo"
                   src="img/logo.svg"

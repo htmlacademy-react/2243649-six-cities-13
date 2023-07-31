@@ -10,7 +10,7 @@ export function ReviewItem({reviews}: ReviewItemProps): JSX.Element {
   const getFormatDate = (date: string): string => (dayjs(date).format('MMMM YYYY'));
   const RatingCount = (rating: number): number => rating * RATING;
   return (
-    <li className="reviews__item">
+    <>
       <div className="reviews__user user">
         <div className="reviews__avatar-wrapper user__avatar-wrapper">
           <img className="reviews__avatar user__avatar" src={reviews.user.avatarUrl} width="54" height="54" alt="Reviews avatar" />
@@ -36,6 +36,6 @@ export function ReviewItem({reviews}: ReviewItemProps): JSX.Element {
         </p>
         <time className="reviews__time" dateTime={reviews.date}>{getFormatDate(reviews.date)}</time>
       </div>
-    </li>
+    </>
   );
 }

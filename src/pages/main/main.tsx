@@ -1,5 +1,5 @@
 import {Offer} from '../../types/offers';
-import PlaceCard from '../../components/place-card/place-card';
+import OfferList from '../../components/offer-list/offer-list';
 
 type MainScreenProps = {
   offersCount: number;
@@ -115,7 +115,7 @@ function MainPage({offersCount, offers}: MainScreenProps) : JSX.Element {
               </form>
               <div className="cities__places-list places__list tabs__content">
 
-                <PlaceCard offers={offers} />
+                <OfferList offers={offers} />
 
               </div>
             </section>

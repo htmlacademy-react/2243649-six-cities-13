@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     <App
       offersCount={Setting.OffersCount}
-      offers = {offers}
+      offers={offers}
       reviews={reviews}
     />
   </React.StrictMode>

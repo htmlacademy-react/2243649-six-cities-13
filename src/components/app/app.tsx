@@ -38,12 +38,9 @@ function App({offersCount, offers, reviews}: AppProps): JSX.Element {
           }
         />
         <Route
-          path={AppRoute.Offer}
-        >
-          <Route path=':id'
-            element={<OfferPage offers={offers} reviews={reviews} />}
-          />
-        </Route>
+          path={`${AppRoute.Offer}/:id`}
+          element={<OfferPage offers={offers} reviews={reviews}/>}
+        />
         <Route
           path="*"
           element={<Page404 />}
