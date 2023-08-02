@@ -1,31 +1,28 @@
 import {Offer} from '../../types/offers';
-import {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../constants';
 
 type OfferCardProps = {
   offer: Offer;
+  onMouseOver?: () => void;
+  onMouseLeave?: () => void;
 }
 
 const bookmarkClass = 'place-card__bookmark-button';
 
-function OfferCard({offer}: OfferCardProps): JSX.Element {
+function OfferCard({offer, onMouseOver, onMouseLeave}: OfferCardProps): JSX.Element {
   const {id, title, type, price, isFavorite, isPremium, rating, previewImage} = offer;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [currentCard, setCurrentCard] = useState('');
 
   return (
     <Link to={`${AppRoute.Offer}/${id}`}>
-      <article className="cities__card place-card" id={id} onMouseOver={()=>setCurrentCard(id)}>
+      <article className="cities__card place-card" id={id} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
         {isPremium && (
           <div className="place-card__mark">
             <span>Premium</span>
           </div>
         )}
         <div className="cities__image-wrapper place-card__image-wrapper">
-          <a href="#">
-            <img className="place-card__image" src={previewImage} width="260" height="200" alt={title} />
-          </a>
+          <img className="place-card__image" src={previewImage} width="260" height="200" alt={title} />
         </div>
         <div className="place-card__info">
           <div className="place-card__price-wrapper">
