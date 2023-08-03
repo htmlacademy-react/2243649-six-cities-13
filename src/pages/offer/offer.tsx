@@ -1,11 +1,29 @@
-function OfferPage(): JSX.Element {
+import OfferCard from '../../components/offer-card/offer-card';
+import {Offer} from '../../types/offers';
+import ReviewList from '../../components/review-list/review-list.tsx';
+import {Review} from '../../types/reviews.tsx';
+import {Link} from 'react-router-dom';
+import {AppRoute} from '../../constants.ts';
+import {useParams, Navigate} from 'react-router-dom';
+
+type OfferScreenProps = {
+  offers: Offer[];
+  reviews: Review[];
+}
+
+function OfferPage({offers,reviews}: OfferScreenProps): JSX.Element {
+  const {id} = useParams();
+  const currentOffer = offers.find((offer) => offer.id === id);
+  if(!currentOffer) {
+    return <Navigate to='Page404' />;
+  }
   return (
     <div className="page">
       <header className="header">
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link" href="main.html">
+              <Link className="header__logo-link" to={AppRoute.Main}>
                 <img
                   className="header__logo"
                   src="img/logo.svg"
@@ -13,7 +31,7 @@ function OfferPage(): JSX.Element {
                   width={81}
                   height={41}
                 />
-              </a>
+              </Link>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
@@ -169,7 +187,8 @@ function OfferPage(): JSX.Element {
               </div>
               <section className="offer__reviews reviews">
                 <h2 className="reviews__title">
-              Reviews · <span className="reviews__amount">1</span>
+              Reviews · <span className="reviews__amount">{reviews.length}</span>
+                  <ReviewList reviews={reviews}/>
                 </h2>
                 <ul className="reviews__list">
                   <li className="reviews__item">
@@ -323,6 +342,7 @@ function OfferPage(): JSX.Element {
           Other places in the neighbourhood
             </h2>
             <div className="near-places__list places__list">
+              {offers.map((offer) => <OfferCard key={offer.id} offer={offer}/>)}
               <article className="near-places__card place-card">
                 <div className="near-places__image-wrapper place-card__image-wrapper">
                   <a href="#">
