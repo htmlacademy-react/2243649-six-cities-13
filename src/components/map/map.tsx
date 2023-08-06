@@ -3,6 +3,7 @@ import {City, Location} from '../../types/offers.tsx';
 import useMap from '../../hooks/useMap.tsx';
 import {URL_MARKER_CURRENT, URL_MARKER_DEFAULT} from '../../constants.ts';
 import {Icon, Marker} from 'leaflet';
+import cn from 'classnames';
 import 'leaflet/dist/leaflet.css';
 
 type MapProps = {
@@ -53,7 +54,7 @@ function Map({city, points, selectedPoint, mapClassName}: MapProps): React.JSX.E
   //const style = mapClassName === 'cities' ? '100%' : '579px';
 
   return (
-    <section className={`${mapClassName}__map map`}
+    <section className={cn(`${mapClassName}__map`, 'map')}
       ref={mapRef}
       style={{height: '100%'}}
     >
