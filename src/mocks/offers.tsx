@@ -1,10 +1,11 @@
 import {Offer} from '../types/offers';
+import {OfferType} from '../constants';
 
 export const offers: Offer[] = [
   {
     id: '6af6f711-c28d-4121-82cd-e0b462a27f00',
     title: 'Beautiful & luxurious studio at great location',
-    type: 'apartment',
+    type: OfferType.apartment,
     price: 120,
     city: {
       name: 'Amsterdam',
@@ -28,7 +29,7 @@ export const offers: Offer[] = [
   {
     id: '7bf7f711-d29e-4222-83cd-s0f463b29f11',
     title: 'Wood and stone place',
-    type: 'apartment',
+    type: OfferType.room,
     price: 370,
     city: {
       name: 'Paris',
@@ -52,7 +53,7 @@ export const offers: Offer[] = [
   {
     id: 'ebbd7789-c58e-4836-ba49-582d2412bf24',
     title: 'Amazing and Extremely Central Flat',
-    type: 'house',
+    type: OfferType.hotel,
     price: 169,
     city: {
       name: 'Brussels',
@@ -76,7 +77,7 @@ export const offers: Offer[] = [
   {
     id: '512e0e14-b818-47d1-9005-27ef351cb3d1',
     title: 'The Joshua Tree House',
-    type: 'room',
+    type: OfferType.house,
     price: 129,
     city: {
       name: 'Hamburg',
