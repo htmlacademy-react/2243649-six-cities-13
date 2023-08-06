@@ -1,5 +1,7 @@
-import {Offer} from '../../types/offers';
+import {Offer, Location} from '../../types/offers';
 import OfferList from '../../components/offer-list/offer-list';
+import {useState} from 'react';
+import Map from '../../components/map/map';
 
 type MainScreenProps = {
   offersCount: number;
@@ -7,6 +9,21 @@ type MainScreenProps = {
 }
 
 function MainPage({offersCount, offers}: MainScreenProps) : JSX.Element {
+  const points = offers.map((offer) => offer.location);
+
+  const [selectedOffer, setSelectedOffer] = useState<Location | undefined>(undefined);
+
+  const onMouseOver = (mousedOffer: Offer | null) => {
+    const currentOffer = offers.find((offer) =>
+      offer.id === mousedOffer?.id,
+    );
+    setSelectedOffer(currentOffer?.location);
+  };
+
+  const onMouseLeave = () => {
+    setSelectedOffer(undefined);
+  };
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -115,12 +132,20 @@ function MainPage({offersCount, offers}: MainScreenProps) : JSX.Element {
               </form>
               <div className="cities__places-list places__list tabs__content">
 
-                <OfferList offers={offers} />
+                <OfferList offers={offers}
+                  onMouseOver={onMouseOver}
+                  onMouseLeave={onMouseLeave}
+                />
 
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map
+                city={offers[0].city}
+                points={points}
+                selectedPoint={selectedOffer}
+                mapClassName={'cities'}
+              />
             </div>
           </div>
         </div>

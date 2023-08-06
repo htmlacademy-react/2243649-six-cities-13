@@ -4,18 +4,31 @@ import {AppRoute} from '../../constants';
 
 type OfferCardProps = {
   offer: Offer;
-  onMouseOver?: () => void;
-  onMouseLeave?: () => void;
+  onMouseOver: (mousedOffer: Offer | null) => void;
+  onMouseLeave: () => void;
+  mapClassName: 'cities' | 'favorites';
 }
 
 const bookmarkClass = 'place-card__bookmark-button';
 
-function OfferCard({offer, onMouseOver, onMouseLeave}: OfferCardProps): JSX.Element {
+function OfferCard({offer, onMouseOver, onMouseLeave, mapClassName}: OfferCardProps): JSX.Element {
   const {id, title, type, price, isFavorite, isPremium, rating, previewImage} = offer;
 
   return (
     <Link to={`${AppRoute.Offer}/${id}`}>
-      <article className="cities__card place-card" id={id} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
+      <article className="cities__card place-card" id={id}
+        onMouseEnter={() => {
+          if (mapClassName === 'cities') {
+            onMouseOver(offer);
+          }
+        }}
+
+        onMouseLeave={() => {
+          if (mapClassName === 'cities') {
+            onMouseLeave();
+          }
+        }}
+      >
         {isPremium && (
           <div className="place-card__mark">
             <span>Premium</span>
