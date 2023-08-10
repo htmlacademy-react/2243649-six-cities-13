@@ -23,4 +23,4 @@ export type Location = {
   zoom: number;
 };
 
-
+export type Nullable<T> = T | null;

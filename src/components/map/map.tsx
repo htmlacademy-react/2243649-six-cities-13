@@ -13,18 +13,11 @@ type MapProps = {
   mapClassName: string;
 }
 
-const defaultIcon = new Icon({
-  iconUrl: URL_MARKER_DEFAULT,
+const GetIcon = (iconUrl: string) => new Icon({
+  iconUrl: iconUrl,
   iconSize: [40, 40],
   iconAnchor: [20, 40],
 });
-
-const currentIcon = new Icon({
-  iconUrl: URL_MARKER_CURRENT,
-  iconSize: [40, 40],
-  iconAnchor: [20, 40],
-});
-
 
 function Map({city, points, selectedPoint, mapClassName}: MapProps): React.JSX.Element {
   const mapRef = useRef(null);
@@ -40,23 +33,17 @@ function Map({city, points, selectedPoint, mapClassName}: MapProps): React.JSX.E
 
         marker
           .setIcon(
-            selectedPoint !== undefined &&
-            point.latitude === selectedPoint?.latitude &&
-            point.longitude === selectedPoint?.longitude
-              ? currentIcon
-              : defaultIcon
+            selectedPoint && selectedPoint === point
+              ? GetIcon(URL_MARKER_CURRENT)
+              : GetIcon(URL_MARKER_DEFAULT)
           )
           .addTo(map);
       });
     }
   }, [map, points, selectedPoint]);
-
-  //const style = mapClassName === 'cities' ? '100%' : '579px';
-
   return (
     <section className={cn(`${mapClassName}__map`, 'map')}
       ref={mapRef}
-      style={{height: '100%'}}
     >
     </section>
   );
