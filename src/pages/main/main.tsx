@@ -1,4 +1,4 @@
-import {Offer, Location} from '../../types/offers';
+import {Offer, Location, Nullable} from '../../types/offers';
 import OfferList from '../../components/offer-list/offer-list';
 import {useState} from 'react';
 import Map from '../../components/map/map';
@@ -11,7 +11,7 @@ type MainScreenProps = {
 function MainPage({offersCount, offers}: MainScreenProps) : JSX.Element {
   const points = offers.map((offer) => offer.location);
 
-  const [selectedOffer, setSelectedOffer] = useState<Location | undefined>(undefined);
+  const [selectedOffer, setSelectedOffer] = useState<Nullable<Location>>(null);
 
   const onMouseOver = (mousedOffer: Offer | null) => {
     const currentOffer = offers.find((offer) =>
@@ -21,7 +21,7 @@ function MainPage({offersCount, offers}: MainScreenProps) : JSX.Element {
   };
 
   const onMouseLeave = () => {
-    setSelectedOffer(undefined);
+    setSelectedOffer(null);
   };
 
   return (
