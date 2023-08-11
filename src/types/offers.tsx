@@ -12,15 +12,15 @@ export type Offer = {
   previewImage: string;
 };
 
-type City = {
+export type City = {
   name: string;
    location: Location;
   };
 
-type Location = {
+export type Location = {
   latitude: number;
   longitude: number;
   zoom: number;
 };
 
-
+export type Nullable<T> = T | null;
