@@ -1,6 +1,6 @@
 import {useEffect, useRef} from 'react';
 import {City, Location} from '../../types/offers.tsx';
-import useMap from '../../hooks/useMap.tsx';
+import useMap from '../../hooks/use-map.tsx';
 import {URL_MARKER_CURRENT, URL_MARKER_DEFAULT} from '../../constants.ts';
 import {Icon, Marker} from 'leaflet';
 import cn from 'classnames';
