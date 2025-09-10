@@ -1,22 +1,23 @@
 import {Offer} from '../types/offers';
+import {OfferType} from '../constants';
 
 export const offers: Offer[] = [
   {
     id: '6af6f711-c28d-4121-82cd-e0b462a27f00',
     title: 'Beautiful & luxurious studio at great location',
-    type: 'apartment',
+    type: OfferType.apartment,
     price: 120,
     city: {
       name: 'Amsterdam',
       location: {
-        latitude: 52.35514938496378,
-        longitude: 4.673877537499948,
+        latitude: 52.3909553943508,
+        longitude: 4.85309666406198,
         zoom: 13
       }
     },
     location: {
-      latitude: 52.35514938496378,
-      longitude: 4.673877537499948,
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
       zoom: 16
     },
     isFavorite: false,
@@ -28,19 +29,19 @@ export const offers: Offer[] = [
   {
     id: '7bf7f711-d29e-4222-83cd-s0f463b29f11',
     title: 'Wood and stone place',
-    type: 'apartment',
+    type: OfferType.room,
     price: 370,
     city: {
       name: 'Paris',
       location: {
-        latitude: 48.868610000000004,
-        longitude: 2.768495644737682,
+        latitude: 52.3609553943508,
+        longitude: 4.85309666406198,
         zoom: 13
       }
     },
     location: {
-      latitude: 48.868610000000004,
-      longitude: 2.768495644737682,
+      latitude: 52.3609553943508,
+      longitude: 4.85309666406198,
       zoom: 13
     },
     isFavorite: false,
@@ -52,19 +53,19 @@ export const offers: Offer[] = [
   {
     id: 'ebbd7789-c58e-4836-ba49-582d2412bf24',
     title: 'Amazing and Extremely Central Flat',
-    type: 'house',
+    type: OfferType.hotel,
     price: 169,
     city: {
       name: 'Brussels',
       location: {
-        latitude: 50.84655732437178,
-        longitude: 4.374696999999999,
+        latitude: 52.3909553943508,
+        longitude: 4.929309666406198,
         zoom: 13
       }
     },
     location: {
-      latitude: 50.84655732437178,
-      longitude: 4.374696999999999,
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
       zoom: 16
     },
     isFavorite: false,
@@ -76,19 +77,19 @@ export const offers: Offer[] = [
   {
     id: '512e0e14-b818-47d1-9005-27ef351cb3d1',
     title: 'The Joshua Tree House',
-    type: 'room',
+    type: OfferType.house,
     price: 129,
     city: {
       name: 'Hamburg',
       location: {
-        latitude: 53.528341000000005,
-        longitude: 9.98265556743587,
+        latitude: 52.3809553943508,
+        longitude: 4.939309666406198,
         zoom: 13
       }
     },
     location: {
-      latitude: 53.528341000000005,
-      longitude: 9.98265556743587,
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198,
       zoom: 16
     },
     isFavorite: false,
